@@ -81,10 +81,11 @@ def ints(mixedStr):
   strippedInts = [int(val) for val in strippedInts]
   return strippedInts
 
-def digits(mixedStr):
-  strippedInts = re.findall(r'\d+', mixedStr)
-  strippedInts = [int(val) for val in strippedInts]
-  return strippedInts
+def digits(mixedStr, asChars=False):
+  if asChars:
+    return [val for val in mixedStr if val.isdigit()]
+  else:
+    return [int(val) for val in mixedStr if val.isdigit()]
 
 ##
 ## Read input file for Day dayNum, return a list of entries
