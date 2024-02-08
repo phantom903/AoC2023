@@ -6,10 +6,12 @@ class DayTwo:
   mem = []
 
   def __init__(self, mem):
-    self.mem = mem.copy()
+    for line in mem:
+      game = line.split(':')
+      self.mem.append({ints(game[0])[0]: [games.split(',') for games in game[1].split(';')]}) 
 
   def partOne(self):
-    pass
+    print(self.mem[0])
 
   def partTwo(self):
     pass

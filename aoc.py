@@ -81,11 +81,22 @@ def ints(mixedStr):
   strippedInts = [int(val) for val in strippedInts]
   return strippedInts
 
+##
+## Return a list of digits in a string, other chars
+## are ignored - if asChars is True, return a list of
+## chars instead of ints
+##
 def digits(mixedStr, asChars=False):
   if asChars:
     return [val for val in mixedStr if val.isdigit()]
   else:
     return [int(val) for val in mixedStr if val.isdigit()]
+
+def digitsFromWords(mixedStr, asChars=False):
+  if asChars:
+    return [val for val in mixedStr.replace("zero", "0").replace("one", "1").replace("two", "2").replace("three", "3").replace("four", "4").replace("five", "5").replace("six", "6").replace("seven", "7").replace("eight", "8").replace("nine", "9") if val.isdigit() or val == ' ']
+  else:
+    return [int(val) for val in mixedStr.replace("zero", "0").replace("one", "1").replace("two", "2").replace("three", "3").replace("four", "4").replace("five", "5").replace("six", "6").replace("seven", "7").replace("eight", "8").replace("nine", "9") if val.isdigit() or val == ' ']
 
 ##
 ## Read input file for Day dayNum, return a list of entries
